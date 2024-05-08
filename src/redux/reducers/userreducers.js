@@ -16,14 +16,14 @@ const userReducer = (state = initialState, action) => {
         ...state,
         users: [...state.users, action.payload]
       };
-      case EDIT_USER:
+    case EDIT_USER:
       return {
         ...state,
         users: state.users.map(user =>
           user.id === action.payload.id ? { ...user, ...action.payload } : user
-      )
+        )
       };
-      case ADD_USER_TO_STORE:
+    case ADD_USER_TO_STORE:
       return {
         ...state,
         users: [...state.users, action.payload],
@@ -34,7 +34,7 @@ const userReducer = (state = initialState, action) => {
         ...state,
         users: state.users.filter(user => user.id !== action.payload),
       };
-      
+
     default:
       return state;
   }
